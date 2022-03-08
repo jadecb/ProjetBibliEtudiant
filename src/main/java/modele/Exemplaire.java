@@ -6,4 +6,25 @@ import java.util.Map;
 import java.time.LocalDate;
 
 public class Exemplaire {
+    
+    private int numExemplaire;
+    private LocalDate dateRecepExemp;
+    private boolean empruntable;
+    
+    public Exemplaire(Integer numExemplaire, LocalDate dateRecepExemp, boolean empruntable) {
+    this.numExemplaire = numExemplaire;
+    this.dateRecepExemp = dateRecepExemp;
+    this.empruntable = empruntable;
+    }
+    
+    public Integer getnumExemplaire() {
+        return numExemplaire;
+    }
+    
+    public LocalDate getdateRecepExemp() {
+        return dateRecepExemp;
+    }
+    public boolean getempruntable() {
+        return empruntable;
+    }
 }
