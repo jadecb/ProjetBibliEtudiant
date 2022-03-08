@@ -120,6 +120,36 @@ public void informerUtilisateur(final String msg) {
     ES.afficherLibelle(msg);
 }
 
+/** Classe conteneur pour les informations saisies pour la création d'un
+* Exemplaire.
+*/
+public static class InfosExemplaire {
+public final Integer numExemplaire;
+public final LocalDate dateRecepExemp;
+public final boolean empruntable;
+
+public InfosExemplaire(final Integer numExemplaire, final LocalDate dateRecepExemp, final boolean empruntable) {
+    this.numExemplaire = numExemplaire;
+    this.dateRecepExemp = dateRecepExemp;
+    this.empruntable = empruntable;
+}
+}
+public InfosLecteur saisirExemplaire() {
+    Integer numExemplaire;
+    LocalDate dateRecepExemp;
+    boolean empruntable;
+
+    ES.afficherTitre("== Saisie d'un lecteur ==");
+    numExemplaire =ES.lireEntier("Saisir le numéro du lecteur :");
+    dateRecepExemp = ES.lireDate("Saisir la date de réception :");
+    empruntable = ES.lireBoolean("Saisir si il est empruntable ou non :");
+
+    return new InfosExemplaire(numExemplaire, dateRecepExemp, empruntable);
+}
+
+
+
+//fin Exemplaire 
 }
 
 

@@ -5,9 +5,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.time.LocalDate;
 
-public class Exemplaire {
+public class Exemplaire implements Serializable{
     
-    private int numExemplaire;
+    private final Integer numExemplaire;
     private LocalDate dateRecepExemp;
     private boolean empruntable;
     
