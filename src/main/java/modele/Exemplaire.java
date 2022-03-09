@@ -27,4 +27,6 @@ public class Exemplaire implements Serializable{
     public boolean getempruntable() {
         return empruntable;
     }
+    
+    (LIER OUVRAGE )
 }
