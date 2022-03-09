@@ -18,6 +18,10 @@ public class ES {
 private static final long serialVersionUID = 1L;
 private static BufferedReader entree = new BufferedReader(new InputStreamReader(System.in));
 
+    public static boolean lireBoolean(String saisir_si_il_est_empruntable_ou_non_) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
 /**
 * Constructeur. Aucun traitement requis.
 */

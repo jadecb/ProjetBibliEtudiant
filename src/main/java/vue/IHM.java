@@ -127,6 +127,7 @@ public static class InfosExemplaire {
 public final Integer numExemplaire;
 public final LocalDate dateRecepExemp;
 public final boolean empruntable;
+(OUVRAGE)
 
 public InfosExemplaire(final Integer numExemplaire, final LocalDate dateRecepExemp, final boolean empruntable) {
     this.numExemplaire = numExemplaire;
@@ -134,19 +135,24 @@ public InfosExemplaire(final Integer numExemplaire, final LocalDate dateRecepExe
     this.empruntable = empruntable;
 }
 }
-public InfosLecteur saisirExemplaire() {
+public InfosExemplaire saisirExemplaire() {
     Integer numExemplaire;
     LocalDate dateRecepExemp;
     boolean empruntable;
 
-    ES.afficherTitre("== Saisie d'un lecteur ==");
-    numExemplaire =ES.lireEntier("Saisir le numéro du lecteur :");
+    ES.afficherTitre("== Saisie d'un exemplaire ==");
+    ISBN =ES.lireEntier("saisir l'ISBN :")
+    numExemplaire =ES.lireEntier("Saisir le numéro de l'Exemplaire :");
     dateRecepExemp = ES.lireDate("Saisir la date de réception :");
     empruntable = ES.lireBoolean("Saisir si il est empruntable ou non :");
-
     return new InfosExemplaire(numExemplaire, dateRecepExemp, empruntable);
 }
-
+public void afficherExemplaire(final Integer num, final String nom, final String prenom,
+                    final LocalDate dateNaiss, final int age, final String email){
+    ES.afficherTitre("== affichage du lecteur== " + num);
+    ES.afficherLibelle("nom, prénom et mail du lecteur :" + nom + " " + prenom + " " + email);
+    ES.afficherLibelle("date de naissance et age du lecteur :" + dateNaiss + " " + age);
+}
 
 
 //fin Exemplaire 
