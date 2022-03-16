@@ -5,21 +5,22 @@ import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import util.ES;
-import vue.*;
-import vue.IHM.InfosLecteur;
-import vue.IHM.InfosOuvrage;
+
+
+import vue.IHM;
+
 
 public class Bibliotheque implements Serializable {
 
     private static final long serialVersionUID = 1L;  // nécessaire pour la sérialisation
     private Map<Integer, Lecteur> lecteurs;
-    private Map<Integer, Ouvrage> ouvrages;
+    private Map<String, Ouvrage> ouvrages;
     private int dernnumlect;
 
     public Bibliotheque() {
         this.lecteurs = new HashMap<>();
         this.ouvrages = new HashMap<>();
+        this.dernnumlect = dernnumlect;
     }
 
     public void nouveauLecteur(IHM ihm) {
@@ -35,19 +36,6 @@ public class Bibliotheque implements Serializable {
         }
     }
 
-    public void nouvelOuvrage(IHM ihm) {
-        IHM.InfosOuvrage infosOuvrage = ihm.saisirOuvrage();
-        Ouvrage o = ouvrages.get(infosOuvrage.isbn);
-        if (o == null) {
-            o = new Ouvrage(infosOuvrage.isbn, infosOuvrage.titre, infosOuvrage.nomEditeur, infosOuvrage.dateParution);
-            lierOuvrage(o, infosOuvrage.isbn);
-            ihm.informerUtilisateur("création de l'ouvrage : " + infosOuvrage.isbn, true);
-
-        } else {
-            ihm.informerUtilisateur("isbn déjà existant", false);
-        }
-    }
-    
     public Map<Integer, Lecteur> getLecteurs() {
         return this.lecteurs;
     }
@@ -56,14 +44,51 @@ public class Bibliotheque implements Serializable {
         this.lecteurs.put(num, l);
     }
 
-    public Map<Integer, Ouvrage> getOuvrages() {
-        return this.ouvrages;
+//-----  méthodes concernant la classe ouvrage -------------
+    public void nouvelOuvrage(IHM ihm) {
+        IHM.InfosOuvrage infosOuvrage = ihm.saisirOuvrage();
+        Ouvrage o = ouvrages.get(infosOuvrage.isbn);
+          
+        if (o == null) {
+            o = new Ouvrage(infosOuvrage.isbn, infosOuvrage.titre, infosOuvrage.nomEditeur , infosOuvrage.dateParution);
+            lierOuvrage(o, infosOuvrage.isbn);
+            ihm.informerUtilisateur("création de l'ouvrage : " + infosOuvrage.isbn, true);
+        } else {
+            ihm.informerUtilisateur("isbn déjà existant", false);
+        }
     }
 
-    private void lierOuvrage(Ouvrage o, Integer isbn) {
-        this.ouvrages.put(isbn, o);
+    public void ConsulterOuvrage(IHM ihm) {
+       
+       
+       Set <String> isbnS = getlistIsbnS();  
+       
+       Ouvrage o = getOuvrage(ihm.saisirIsbn(isbnS));
+       String t = o.gettitre();
+       String a = o.getAuteur();
+       String ed = o.getNomEditeur();
+       LocalDate de = o.getdateParution();
+       
+       ihm.afficherOuvrage(t, a, ed, de);     
+
     }
-   
+
+    public Set<String> getlistIsbnS() {
+        return this.ouvrages.keySet();
+    }
 
     
+
+    
+    public Ouvrage getOuvrage(String isbnverif){
+        
+        return ouvrages.get(isbnverif);
+    }   
+        
+               
+        
+    private void lierOuvrage(Ouvrage o, String isbn) {
+        this.ouvrages.put(isbn, o);
+    }
+
 }
