@@ -2,16 +2,15 @@ package modele;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 
 
 public class Ouvrage implements Serializable {
     private final Integer ibsn;
     private String titre;
     private String nomEditeur;
-    private Date dateParution;
+    private LocalDate dateParution;
 
-    public Ouvrage(Integer ibsn, String titre, String nomEditeur, Date dateParution) {
+    public Ouvrage(Integer ibsn, String titre, String nomEditeur, LocalDate dateParution) {
         this.ibsn = ibsn;
         this.titre = titre;
         this.nomEditeur = nomEditeur;
