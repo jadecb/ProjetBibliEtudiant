@@ -30,8 +30,9 @@ public class Ouvrage implements Serializable {
         return nomEditeur;
     }
 
-    public Date getdateParution() {
+    public LocalDate getdateParution() {
         return dateParution;
     }
+
 }
 
