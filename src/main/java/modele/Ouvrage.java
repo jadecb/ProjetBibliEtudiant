@@ -2,23 +2,24 @@ package modele;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 
 
 public class Ouvrage implements Serializable {
-    private final Integer ibsn;
+    private final String ibsn;
     private String titre;
     private String nomEditeur;
-    private Date dateParution;
+    private LocalDate dateParution;
+    private String auteur;
 
-    public Ouvrage(Integer ibsn, String titre, String nomEditeur, Date dateParution) {
+    public Ouvrage(String ibsn, String titre, String nomEditeur, LocalDate dateParution) {
         this.ibsn = ibsn;
         this.titre = titre;
         this.nomEditeur = nomEditeur;
         this.dateParution = dateParution;
+        this.auteur= auteur;
     }
 
-    public Integer getIbsn() {
+    public String getIbsn() {
         return ibsn;
     }
 
@@ -30,8 +31,16 @@ public class Ouvrage implements Serializable {
         return nomEditeur;
     }
 
-    public Date getdateParution() {
+    public LocalDate getdateParution() {
         return dateParution;
+    }
+
+    public String getAuteur() {
+        return auteur;
+    }
+
+    public void setAuteur(String auteur) {
+        this.auteur = auteur;
     }
 }
 
