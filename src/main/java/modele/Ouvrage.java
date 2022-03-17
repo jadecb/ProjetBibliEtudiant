@@ -16,14 +16,16 @@ public class Ouvrage implements Serializable {
     private final LocalDate dateParution;
     private final int dernierExemplaire;
     private final Set <Exemplaire> exemplaires;
+    private final Public typePublic;
 
-    public Ouvrage(String ibsn, String titre, String Auteur, String nomEditeur, LocalDate dateParution, int dernierExemplaire) {
+    public Ouvrage(String ibsn, String titre, String Auteur, String nomEditeur, LocalDate dateParution, int dernierExemplaire, Public typePublic) {
         this.ibsn = ibsn;
         this.titre = titre;
         this.Auteur = Auteur;
         this.nomEditeur = nomEditeur;
         this.dateParution = dateParution;
         this.dernierExemplaire = 0 ;
+        this.typePublic = typePublic;
         this.exemplaires = new Set<Exemplaire>() {
             @Override
             public int size() {
