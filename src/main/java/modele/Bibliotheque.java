@@ -2,6 +2,7 @@ package modele;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -50,7 +51,7 @@ public class Bibliotheque implements Serializable {
         Ouvrage o = ouvrages.get(infosOuvrage.isbn);
 
         if (o == null) {
-            o = new Ouvrage(infosOuvrage.isbn, infosOuvrage.titre, infosOuvrage.Auteur, infosOuvrage.nomEditeur , infosOuvrage.dateParution);
+            o = new Ouvrage(infosOuvrage.isbn, infosOuvrage.titre, infosOuvrage.Auteur, infosOuvrage.nomEditeur, infosOuvrage.dateParution);
             lierOuvrage(o, infosOuvrage.isbn);
             ihm.informerUtilisateur("création de l'ouvrage : " + infosOuvrage.isbn, true);
         } else {
@@ -68,7 +69,7 @@ public class Bibliotheque implements Serializable {
         String t = o.gettitre();
         String a = o.getAuteur();
         String ed = o.getNomEditeur();
-        LocalDate de = o.getdateParution();
+        Date de = o.getdateParution();
 
         ihm.afficherOuvrage(isbn, t, a, ed, de);
 

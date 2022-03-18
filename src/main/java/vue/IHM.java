@@ -2,6 +2,8 @@ package vue;
 
 import modele.*;
 import util.*;
+
+import java.util.Date;
 import java.util.Set;
 import java.time.LocalDate;
 
@@ -145,7 +147,7 @@ public class IHM {
     }
 
     public void afficherOuvrage(final String isbn, final String titre, final String Auteur, final String nomEditeur,
-                                final LocalDate dateParution) {
+                                final Date dateParution) {
         ES.afficherTitre("== affichage de l'ouvrage == " + isbn);
         ES.afficherLibelle("isbn, titre, nom de l'éditeur et date de parution :" + isbn + " " + titre + " " + Auteur + " " + nomEditeur + " " + dateParution);
 

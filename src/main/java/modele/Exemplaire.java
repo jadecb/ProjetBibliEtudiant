@@ -14,8 +14,8 @@ public class Exemplaire implements Serializable {
     private Boolean empruntab;
     private Ouvrage ouvrage;
 
-    public Exemplaire(Integer numExemp, LocalDate dateRecepExemp, Boolean empruntab, Ouvrage o) {
-        this.numExemp = numExemp;
+    public Exemplaire(Integer numEx, LocalDate dateRecepExemp, Boolean empruntab, Ouvrage o) {
+        this.numExemp = numEx;
         this.dateRecepExemp = dateRecepExemp;
         this.empruntab = empruntab;
         this.ouvrage = o;
