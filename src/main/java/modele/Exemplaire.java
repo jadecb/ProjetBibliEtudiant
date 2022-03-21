@@ -20,6 +20,29 @@ public class Exemplaire implements Serializable {
         this.empruntab = empruntab;
         this.ouvrage = o;
     }
+
+    public Boolean getEmpruntab() {
+        return empruntab;
+    }
+
+    public Integer getNumExemp() {
+        return numExemp;
+    }
+
+    public LocalDate getDateRecepExemp() {
+        return dateRecepExemp;
+    }
+
+    public void lierOuvrage(Ouvrage o){
+        o = this.ouvrage;
+    }
+
+
+    public void setEmpruntab(Boolean empruntab) {
+        this.empruntab = empruntab;
+    }
+
+
 }
 
 

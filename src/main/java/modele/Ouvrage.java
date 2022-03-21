@@ -20,13 +20,13 @@ public class Ouvrage implements Serializable {
     private final Public typePublic;
     private Integer numEx;
 
-    public Ouvrage(String ibsn, String titre, String Auteur, String nomEditeur, Date dateParution, int dernierExemplaire, Public typePublic) {
+    public Ouvrage(String ibsn, String titre, String Auteur, String nomEditeur, Date dateParution, int dernierNumExemplaire, Public typePublic) {
         this.ibsn = ibsn;
         this.titre = titre;
         this.Auteur = Auteur;
         this.nomEditeur = nomEditeur;
         this.dateParution = dateParution;
-        this.dernierExemplaire = 0 ;
+        this.dernierNumExemplaire = 0 ;
         this.typePublic = typePublic;
         this.exemplaires = new Set<Exemplaire>() {
         };
@@ -52,9 +52,15 @@ public class Ouvrage implements Serializable {
         return Auteur;
     }
 
-    public Integer ajoutExempEmpruntab(LocalDate dateRecep){
+    public Integer ajoutExempNbreEmpruntab(LocalDate dateRecep){
         this.numEx = IncrementerNumExemplaire(numEx);
         setEmpruntab = true;
+        Exemplaire e= new Exemplaire(dateRecep,this, setEmpruntab, numEx);
+
+    }
+    public Integer ajoutExempNbreNONEmpruntab(LocalDate dateRecep){
+        this.numEx = IncrementerNumExemplaire(numEx);
+        setEmpruntab = false;
         Exemplaire e= new Exemplaire(dateRecep,this, setEmpruntab, numEx);
 
     }
