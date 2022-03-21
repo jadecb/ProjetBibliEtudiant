@@ -16,12 +16,16 @@ public class Bibliotheque implements Serializable {
     private static final long serialVersionUID = 1L;  // nécessaire pour la sérialisation
     private Map<Integer, Lecteur> lecteurs;
     private Map<String, Ouvrage> ouvrages;
+    private Set<Interger, Exemplaire> exemplaires;
     private int dernnumlect;
+    private int dernierNumExemplaire;
 
     public Bibliotheque() {
         this.lecteurs = new HashMap<>();
         this.ouvrages = new HashMap<>();
+        this.exemplaires = new set<>();
         this.dernnumlect = 0;
+        this.dernierNumExemplaire = 0;
     }
 
     public void nouveauLecteur(IHM ihm) {
@@ -39,6 +43,10 @@ public class Bibliotheque implements Serializable {
 
     public Map<Integer, Lecteur> getLecteurs() {
         return this.lecteurs;
+    }
+
+    private int IncrementerNumLecteur(Integer num) {
+        return dernnumlect++;
     }
 
     private void lierLecteur(Lecteur l, Integer num) {
