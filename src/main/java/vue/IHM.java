@@ -120,19 +120,22 @@ public class IHM {
         public final String Auteur;
         public final String nomEditeur;
         public final LocalDate dateParution;
+        public int dernierNumExemplaire;
+        public Public typePublic;
 
-        public InfosOuvrage(final String isbn, final String titre, final String Auteur, final String nomEditeur, final LocalDate dateParution) {
+        public InfosOuvrage(final String isbn, final String titre, final String Auteur, final String nomEditeur, final LocalDate dateParution, int dernierNumExemplaire, Public typePublic) {
             this.isbn = isbn;
             this.titre = titre;
             this.Auteur = Auteur;
             this.nomEditeur = nomEditeur;
             this.dateParution = dateParution;
+            this.dernierNumExemplaire = dernierNumExemplaire;
+            this.typePublic = typePublic;
         }
 
     }
 
-    public InfosOuvrage saisirOuvrage() {
-        String titre, Auteur, nomEditeur;
+    public InfosOuvrage saisirOuvrage(set <String> isbn) { String titre, Auteur, nomEditeur;
         LocalDate dateParution;
         String isbn;
 
