@@ -174,6 +174,48 @@ public class IHM {
 
         return isbnsaisie;
     }
+
+    //-----  Classes conteneurs et éléments de dialogue pour l'exemplaire --------------//
+    public static class InfosExemplaire {
+
+        public final LocalDate dateRecepExemp;
+        public final Integer nbExemplaire;
+        public final Integer nbeEmpruntable;
+        public final String isbnSaisie;
+
+        public InfosExemplaire(final LocalDate dateRecepExemp, final Integer nbExemplaire, final Integer nbeEmpruntable, final String isbnSaisie) {
+            this.dateRecepExemp = dateRecepExemp;
+            this.nbExemplaire = nbExemplaire;
+            this.nbeEmpruntable = nbeEmpruntable;
+            this.isbnSaisie = isbnSaisie;
+        }
+    }
+
+    public InfosExemplaire saisirExemplaire() {
+        LocalDate dateRecepExemp;
+        String isbnSaisie;
+        Integer nbExemplaire, nbeEmpruntable;
+
+        ES.afficherTitre("== Saisie des informations des exemplaires d'un ouvrage ==");
+        dateRecepExemp = ES.lireDate("Saisir la date de réception");
+        nbExemplaire = ES.lireEntier("Saisir le nombre d'exemplaire total");
+        nbeEmpruntable = ES.lireEntier("Saisir le nombre d'exemplaires empruntables");
+        isbnSaisie = ES.lireChaine("Saisir l'ISBN de l'ouvrage");
+
+        LocalDate dateduJour = LocalDate.now();
+
+        if (dateRecepExemp.isBefore(dateduJour)) {
+            informerUtilisateur("date de parution incorrect. Veuillez resaisir");
+        }
+        if (nbeEmpruntable > nbExemplaire) {
+            informerUtilisateur("nombre d'exemplaires empruntables incorrects.Veuillez resaisir le bon nombre.");
+        }
+
+        return new InfosExemplaire(dateRecepExemp, nbExemplaire, nbeEmpruntable, isbnSaisie);
+    }
+
+
+
 //-----  Primitives d'affichage  -----------------------------------------------
 
     public void informerUtilisateur(final String msg, final boolean succes) {

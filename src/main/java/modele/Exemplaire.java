@@ -9,14 +9,14 @@ public class Exemplaire implements Serializable {
 
 
     private static final long serialVersionUID = 1L;  // nécessaire pour la sérialisation
-    private Integer numExemp;
     private LocalDate dateRecepExemp;
+    private Integer numExemp;
     private Boolean empruntab;
     private Ouvrage ouvrage;
 
-    public Exemplaire(Integer numEx, LocalDate dateRecepExemp, Boolean empruntab, Ouvrage o) {
-        this.numExemp = numEx;
+    public Exemplaire(LocalDate dateRecepExemp, Integer numEx, Boolean empruntab, Ouvrage o) {
         this.dateRecepExemp = dateRecepExemp;
+        this.numExemp = numEx;
         this.empruntab = empruntab;
         this.ouvrage = o;
     }
@@ -36,7 +36,6 @@ public class Exemplaire implements Serializable {
     public void lierOuvrage(Ouvrage o){
         o = this.ouvrage;
     }
-
 
     public void setEmpruntab(Boolean empruntab) {
         this.empruntab = empruntab;

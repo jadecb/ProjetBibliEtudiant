@@ -102,3 +102,37 @@ public class Bibliotheque implements Serializable {
     }
 
 }
+
+    //-----  méthodes concernant la classe exemplaire -------------//
+    public void NouvelExemplaire(IHM ihm) {
+        Set<String> listIsbnS = getlistIsbnS();
+        IHM.InfosExemplaire InfosExemplaire = ihm.saisirExemplaire();
+        Ouvrage o;
+        Integer NbeNonEmprunt;
+        if (listIsbnS.contains(InfosExemplaire.isbnSaisie)) {
+            o = getOuvrage(InfosExemplaire.isbnSaisie);
+            NbeNonEmprunt = InfosExemplaire.nbExemplaire - InfosExemplaire.nbeEmpruntable;
+            o.ajoutExempEmpruntab(InfosExemplaire.dateRecepExemp, InfosExemplaire.nbeEmpruntable, o);
+            o.ajoutExempNONEmpruntab(InfosExemplaire.dateRecepExemp, NbeNonEmprunt, o);
+            ihm.informerUtilisateur("Réussite de la création des exemplaires ", true);
+
+        } else {
+            ihm.informerUtilisateur("ISBN incorrect. Veuillez resaisir. ", false);
+        }
+    }
+
+    public void ConsulterExemplairesOuvrage(IHM ihm) {
+        Set<String> listIsbnS = getlistIsbnS();
+        Ouvrage o = getOuvrage(ihm.saisirIsbn(listIsbnS));
+
+        String t = o.gettitre();
+
+        Integer eS = getExemplaireS(t);
+
+        for(int i = 0; i < eS; i++){
+
+        }
+
+    }
+
+}
