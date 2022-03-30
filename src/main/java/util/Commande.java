@@ -12,11 +12,15 @@ public enum Commande {
 
     QUITTER(0, "Quitter"),
     CREER_LECTEUR(1, "Créer un nouvel lecteur"),
-    CONSULTER_LECTEURS (2,"Afficher tous les lecteurs");
+    CONSULTER_LECTEURS (2,"Afficher tous les lecteurs"),
     CREER_OUVRAGE(3,"Créer un nouvel Ouvrage"),
-    CONSULTER_OUVRAGE(4, "Afficher tous les ouvrage"),
+    AFFICHER_OUVRAGE(4, "Afficher tous les ouvrage"),
     CREER_EXEMPLAIRE (5,"Créer un nouvel exemplaire"),
-    CONSULTER_EXEMPLAIRE(6,"Afficger tous les exemplaire d'un ouvrage");
+    AFFICHER_EXEMPLAIRE(6,"Afficher tous les exemplaire d'un ouvrage"),
+    EMPRUNTER_EXEMPLAIRE(7,"Emprunter un exemplaire"),
+    RENDRE_EXEMPLAIRE(8,"Rendre un exemplaire emprunter"),
+    CONSULTER_EMPRUNT_LECTEUR(9,"Consulter les emprunts d'exemplaire d'un lecteur"),
+    RELANCER_LECTEUR(10,"Relancer un tous les lecteurs qui n'ont pas rendue l'exemplaire à temps");
 
 private final int code;
 private final String description;

@@ -19,10 +19,16 @@ public class Exemplaire implements Serializable {
         this.numExemp = numEx;
         this.empruntab = empruntab;
         this.ouvrage = o;
+        o.setExemplaire(this);
+        lierOuvrage(o);
     }
 
     public Boolean getEmpruntab() {
         return empruntab;
+    }
+
+    public Ouvrage getExemplaire(){
+        return ouvrage;
     }
 
     public Integer getNumExemp() {
@@ -36,6 +42,8 @@ public class Exemplaire implements Serializable {
     public void lierOuvrage(Ouvrage o){
         o = this.ouvrage;
     }
+
+    public  Ouvrage getOuvrage() { return  ouvrage;}
 
     public void setEmpruntab(Boolean empruntab) {
         this.empruntab = empruntab;

@@ -8,11 +8,11 @@ import java.time.LocalDate;
 public class Lecteur implements Serializable {
 
 private static final long serialVersionUID = 1L;  // nécessaire pour la sérialisation
-private final Integer num;
-private String nom;
-private String prenom;
-private LocalDate dateNaiss;
-private String email;
+    private final Integer num;
+    private String nom;
+    private String prenom;
+    private LocalDate dateNaiss;
+    private String email;
 
 public Lecteur(Integer num, String nom, String prenom, LocalDate dateNaiss, String email) {
     this.num = num;
@@ -22,9 +22,7 @@ public Lecteur(Integer num, String nom, String prenom, LocalDate dateNaiss, Stri
     this.email = email;
 }
 
-public Integer getNum() {
-    return num;
-}
+public Integer getNum() {return num;}
 
 public String getNom() {
     return nom;
@@ -39,7 +37,7 @@ public LocalDate getDateNaiss() {
 }
 
 public String getEmail() {
-    return this.email;
+    return email;
 }
 
 public Integer getAge() {

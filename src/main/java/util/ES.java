@@ -76,6 +76,36 @@ ES.afficherLibelle(libelle);
 return lireEmail();
 }  // Fin de lireEmail
 
+/**
+ * Affiche un libellé et permet à l'utilisateur de faire un choix entre deux option.
+ * @param libelle : libellé à afficher en début pour indiquer quelle saisie
+* effectuer
+* @return Boolean : choix saisie par l'utilisateur
+ */
+    public static Boolean lireBoolean(String libelle){
+
+        System.out.println(libelle);
+        int test = 2;
+
+        ES.afficherLibelle("-- Saisir 1 pour oui, 0 pour non");
+        test = ES.lireEntier();
+
+        while(test != 1 && test != 0)
+        {
+            ES.afficherLibelle("Saisir 1 ou 0\n- Entrer un numéro : ");
+            test = ES.lireEntier();
+        }
+
+        if(test == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 //	---------------------------------------------------------------------------------------------------------------------
 //	Gestion des entiers
 /**
